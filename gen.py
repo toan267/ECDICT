@@ -20,10 +20,10 @@ with open('ecdict.csv', newline='') as file:
       
     # output list to store all rows
     Output = []
-    Output.append(headings[:2])
+    Output.append(headings[:3])
     for row in reader:
         if row[1] != "":
-            Output.append([row[0], "["+row[1]+"]"])
+            Output.append([row[0], "["+row[1]+"]", row[2]])
   
 # for row_num, rows in enumerate(Output):
     # print('data in row number {} is {}'.format(row_num+1, rows))
@@ -35,7 +35,7 @@ english_words = load_words()
     # print("fate")
 
 # all words with phonetic only
-with open('20k_word_phonetic.csv', mode='w') as employee_file:
+with open('20k_word_phonetic_definition.csv', mode='w') as employee_file:
     employee_writer = csv.writer(employee_file, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     for line in Output:
